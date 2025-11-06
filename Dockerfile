@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Update npm to ensure compatibility with lockfileVersion 3
-RUN npm install -g npm@latest
+# Update npm to ensure compatibility with lockfileVersion 3 (npm 10.x is compatible with Node 18)
+RUN npm install -g npm@10
 
 # Install dependencies
 RUN npm ci --omit=dev
