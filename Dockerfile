@@ -6,8 +6,11 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
+# Update npm to ensure compatibility with lockfileVersion 3
+RUN npm install -g npm@latest
+
 # Install dependencies
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 # Copy application files
 COPY index.js ./
