@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  strmarr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: strmarr
+    env_file:
+      - .env
+    environment:
+      - MEDIA_PATH=${MEDIA_PATH:-/app/media}
+      - PLAYARR_BASE_URL=${PLAYARR_BASE_URL}
+      - PLAYARR_API_KEY=${PLAYARR_API_KEY}
+      - SYNC_INTERVAL=${SYNC_INTERVAL:-0 * * * *}
+    volumes:
+      - ./media:/app/media
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
