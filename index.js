@@ -27,7 +27,7 @@ const PLAYARR_API_KEY = process.env.PLAYARR_API_KEY;
 const SYNC_INTERVAL = process.env.SYNC_INTERVAL || '0 * * * *'; // Every hour by default
 
 // Media types to sync
-const MEDIA_TYPES = ['movies', 'shows'];
+const MEDIA_TYPES = ['movies', 'tvshows'];
 
 if (!PLAYARR_BASE_URL) {
   console.error('ERROR: PLAYARR_BASE_URL environment variable is required');
